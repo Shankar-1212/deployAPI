@@ -10,6 +10,7 @@ import numpy as np
 import os
 import requests
 from io import BytesIO
+import zipfile
 
 class PredictionHTMLView(APIView):
     def get(self, request, *args, **kwargs):
@@ -18,16 +19,27 @@ class PredictionHTMLView(APIView):
             queryset, many=True, context={'request': request})
         return Response(serializer_class.data)
     def post(self, request, *args, **kwargs):
-        if request.content_type == 'application/zip':
-            zip_file = BytesIO(request.body)
+
+        # if request.content_type == 'application/zip':
+        if request.content_type == 'text/html':
+            text_data = request.body.decode('utf-8')
+            with open('index.html', 'w') as file:
+                file.write(text_data)
+            with zipfile.ZipFile("website.zip", mode="w") as zf:
+                zf.write('index.html')
+
+            access_token = "mcMX6BXdqcQIvjgChC2f9NnZCWPqEa7h6dJjwlbvhVg"
             api_endpoint = "https://api.netlify.com/api/v1/sites"
-            access_token = ""
-            headers = {"Authorization": f"Bearer {access_token}"}
-            files = {"file": ("website.zip", zip_file, "application/zip")}
-            response = requests.post(api_endpoint, headers=headers, data=files)
-            site_id = response.json().get("site_id")
-            deploy_endpoint = f"{api_endpoint}/{site_id}/deploys"
-            response = requests.post(deploy_endpoint, headers=headers)
+
+    # Open the zip file in binary mode
+            with open('website.zip', 'rb') as f:
+                # Send a POST request with the file as data-binary and required headers
+                response = requests.post(
+                    api_endpoint,
+                    headers={
+                        "Content-Type": "application/zip",
+                        "Authorization": f"Bearer {access_token}"
+                    },
+                    data=f
+                )
             return Response(response.json())
-        else:
-            return Response({"error": "Invalid content type."}, status=status.HTTP_400_BAD_REQUEST)
