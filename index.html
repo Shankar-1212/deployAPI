@@ -1,16 +1,148 @@
 <!DOCTYPE html>
-<html>
-<head>
-<style>
-body {background-color: powderblue;}
-h1   {color: blue;}
-p    {color: red;}
-</style>
-</head>
-<body>
+<html lang="en">
 
-<h1>This is a heading</h1>
-<p>This is a paragraph.</p>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.7/dist/tailwind.min.css" rel="stylesheet">
+    <title>Bharath Raj - Machine Learning Developer</title>
+</head>
+
+<body class="bg-gradient-to-br from-gray-600 to-blue-700">
+    <header class="container mx-auto px-4 py-8">
+        <div class="flex justify-between">
+            <a href="#" class="text-white font-bold text-xl">Bharath Raj</a>
+            <nav>
+                <ul class="flex">
+                    <li class="pr-4">
+                        <a href="#" class="text-white hover:text-gray-400">Home</a>
+                    </li>
+                    <li class="pr-4">
+                        <a href="#about" class="text-white hover:text-gray-400">About</a>
+                    </li>
+                    <li class="pr-4">
+                        <a href="#projects" class="text-white hover:text-gray-400">Projects</a>
+                    </li>
+                    <li>
+                        <a href="#contact" class="text-white hover:text-gray-400">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container mx-auto px-4 py-8">
+        <section id="hero" class="text-center text-white">
+            <h1 class="text-4xl font-bold mb-4">Machine Learning Developer</h1>
+            <h2 class="text-lg font-light mb-8">I am Bharath Raj, working as a Machine Learning Intern at ICHEC.</h2>
+            <a href="#projects" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">View Projects</a>
+        </section>
+
+        <section id="about" class="mt-12 mb-24">
+            <h2 class="text-3xl font-bold mb-4 text-white">About Me</h2>
+            <div class="flex flex-wrap">
+                <div class="w-full md:w-1/2 lg:w-1/3 px-4 mb-8">
+                    <img src="https://picsum.photos/400/400" alt="Profile Picture" class="rounded-full w-full">
+                </div>
+                <div class="w-full md:w-1/2 lg:w-2/3 px-4">
+                    <p class="text-gray-200 leading-loose">
+                        Hello! I am Bharath Raj, a machine learning enthusiast based in Dublin, Ireland. I am currently working as a Machine Learning Intern at ICHEC, where I help build and deploy machine learning models for various clients.
+                    </p>
+                    <p class="text-gray-200 leading-loose mt-4">
+                        I have a Bachelor's degree in Computer Science and Engineering, and I have always been interested in artificial intelligence and its applications. In my free time, I love to experiment with new machine learning techniques and work on personal projects to improve my skills.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="mb-24">
+            <h2 class="text-3xl font-bold mb-4 text-white">Projects</h2>
+            <div class="flex flex-wrap">
+                <div class="w-full md:w-1/2 lg:w-1/3 px-4 mb-8">
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md">
+                        <a href="#"><img src="https://picsum.photos/400/250" alt="Project 1" class="w-full"></a>
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold mb-2"><a href="#" class="text-blue-500 hover:text-blue-700">Project Title</a></h3>
+                            <p class="text-gray-700 leading-normal">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod eu lorem et ultricies. In porta lorem at dui semper porttitor. Nullam quis cursus dui. Cras tincidunt vehicula tellus eu facilisis.</p>
+                            <a href="#" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4 inline-block">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2 lg:w-1/3 px-4 mb-8">
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md">
+                        <a href="#"><img src="https://picsum.photos/400/250" alt="Project 2" class="w-full"></a>
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold mb-2"><a href="#" class="text-blue-500 hover:text-blue-700">Project Title</a></h3>
+                            <p class="text-gray-700 leading-normal">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod eu lorem et ultricies. In porta lorem at dui semper porttitor. Nullam quis cursus dui. Cras tincidunt vehicula tellus eu facilisis.</p>
+                            <a href="#" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4 inline-block">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2 lg:w-1/3 px-4 mb-8">
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md">
+                        <a href="#"><img src="https://picsum.photos/400/250" alt="Project 3" class="w-full"></a>
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold mb-2"><a href="#" class="text-blue-500 hover:text-blue-700">Project Title</a></h3>
+                            <p class="text-gray-700 leading-normal">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod eu lorem et ultricies. In porta lorem at dui semper porttitor. Nullam quis cursus dui. Cras tincidunt vehicula tellus eu facilisis.</p>
+                            <a href="#" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4 inline-block">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="mb-24">
+            <h2 class="text-3xl font-bold mb-4 text-white">Contact Me</h2>
+            <div class="flex flex-wrap">
+                <div class="w-full md:w-1/2 px-4 mb-8">
+                    <form action="#" method="POST">
+                        <div class="flex flex-wrap mb-6">
+                            <div class="w-full md:w-1/2 pr-4 mb-6">
+                                <label class="block text-gray-200 text-sm font-bold mb-2" for="name">
+                                    Name
+                                </label>
+                                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="name" type="text" placeholder="Johnny Appleseed">
+                            </div>
+                            <div class="w-full md:w-1/2 pl-4 mb-6">
+                                <label class="block text-gray-200 text-sm font-bold mb-2" for="email">
+                                    Email
+                                </label>
+                                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" placeholder="johnny@appleseed.com">
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-gray-200 text-sm font-bold mb-2" for="message">
+                                Message
+                            </label>
+                            <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="message" rows="8" placeholder="Enter your message here"></textarea>
+                        </div>
+                        <div class="flex justify-end">
+                            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="submit">
+                                Send
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="w-full md:w-1/2 px-4">
+                    <h3 class="text-lg font-bold mb-4 text-white">Get in Touch</h3>
+                    <p class="text-gray-200 leading-loose">Feel free to contact me with any questions, ideas, or opportunities using the form on this page. You can also follow me on social media:</p>
+                    <ul class="mt-4">
+                        <li>
+                            <a href="#" class="text-blue-500 hover:text-blue-700">Twitter</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-blue-500 hover:text-blue-700">LinkedIn</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-blue-500 hover:text-blue-700">GitHub</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </div>
 
 </body>
+
 </html>

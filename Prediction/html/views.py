@@ -21,30 +21,33 @@ class PredictionHTMLView(APIView):
         return Response(serializer_class.data)
 
     def post(self, request, *args, **kwargs):
-        if request.content_type == 'text/html':
-            # Read the HTML data from the request body
-            html_data = request.body
-            with open('index.html', 'wb') as f:
-                f.write(html_data)
-            with open("netlify.toml", "w") as f:
-                f.write("[[redirects]]\n  from = \"/*\"\n  to = \"/index.html\"\n  status = 200\n")
-            # Create a zip file containing the HTML file
-            with zipfile.ZipFile("website.zip", mode="w") as zf:
-                zf.write('index.html')
-                zf.write("netlify.toml")
 
-            # Upload the zip file to Netlify using the REST API
-            access_token = "mcMX6BXdqcQIvjgChC2f9NnZCWPqEa7h6dJjwlbvhVg"
-            api_endpoint = "https://api.netlify.com/api/v1/sites"
-            with open('website.zip', 'rb') as f:
-            # Send a POST request with the file as data-binary and required headers
-                response = requests.post(
-                    api_endpoint,
-                    headers={
-                        "Content-Type": "application/zip",
-                        "Authorization": f"Bearer {access_token}"
-                    },
-                    data=f
-                )
+        html_data = request.data.get('html_data','')
+        with open('index.html', 'wb') as f:
+            f.write(html_data.encode('utf-8'))
+        with open("netlify.toml", "w") as f:
+            f.write("[[redirects]]\n  from = \"/*\"\n  to = \"/index.html\"\n  status = 200\n")
+
+        with zipfile.ZipFile("website.zip", mode="w") as zf:
+            zf.write('index.html')
+            zf.write("netlify.toml")
         
-            return Response(response.json())
+        site_name = request.data.get('site_name', 'My Site')
+        access_token = "mcMX6BXdqcQIvjgChC2f9NnZCWPqEa7h6dJjwlbvhVg"
+        api_endpoint = "https://api.netlify.com/api/v1/sites"
+        with open('website.zip', 'rb') as f:
+            response = requests.post(
+                api_endpoint,
+                headers={
+                    "Content-Type": "application/zip",
+                    "Authorization": f"Bearer {access_token}"
+                },
+                data=f,
+                params={
+                    "name": site_name,
+                }
+
+            )
+
+        return Response(response.json())
+
