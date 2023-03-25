@@ -48,6 +48,5 @@ class PredictionHTMLView(APIView):
                 }
 
             )
-
-        return Response(response.json())
-
+            deployed_url = f'https://{site_name}.netlify.app'
+        return Response({'deployed_url': deployed_url})
